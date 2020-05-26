@@ -14,8 +14,14 @@ To enable the shellcheck problem matchers, simply add this Action as a step **be
 
 ```yaml
 uses: lumaxis/shellcheck-problem-matchers@v1
-run: shellcheck *.sh
+run: shellcheck -f gcc *.sh
 ```
+
+> **Note:** You will get the best results when specifying `gcc` as the `shellcheck` output format: `shellcheck -f gcc`
+
+See the [actions tab](https://github.com/lumaxis/shellcheck-problem-matchers/actions) for runs of this action! :rocket:
+
+### Additional Options
 
 By default, this Action installs all available problem matchers but you can specify one of the available formats explicitly:
 
@@ -24,8 +30,6 @@ uses: lumaxis/shellcheck-problem-matchers@v1
 with:
   format: gcc # Available options are "gcc", "json", or "tty"
 ```
-
-See the [actions tab](https://github.com/lumaxis/shellcheck-problem-matchers/actions) for runs of this action! :rocket:
 
 ## Contributing
 
