@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v2-beta
-    - run : npm ci
+    - run: npm ci
     - run: npm run lint
 
   test-all-formats:
@@ -18,19 +18,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: ./
+    - name: Use local version of Action
+      uses: ./
     # Run shellcheck and expect it to fail wit exit code 1
-    - run: shellcheck test/fixtures/*.sh; [[ $? == 1 ]]; exit $?
+    - name: Run shellcheck
+      run: shellcheck test/fixtures/*.sh; [[ $? == 1 ]]; exit $?
       shell: bash {0}
 
   test-specific-format:
     name: Run Action with a specific format
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        format: [ gcc, json, tty ]
     steps:
     - uses: actions/checkout@v1
-    - uses: ./
+    - name: Use local version of Action
+      uses: ./
       with:
-        format: gcc
+        format: ${{ matrix.format }}
     # Run shellcheck and expect it to fail wit exit code 1
-    - run: shellcheck -f gcc test/fixtures/*.sh; [[ $? == 1 ]]; exit $?
+    - name: Run shellcheck
+      run: shellcheck -f ${{ matrix.format }} test/fixtures/*.sh; [[ $? == 1 ]]; exit $?
       shell: bash {0}
