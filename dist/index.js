@@ -60,6 +60,7 @@ module.exports = require("os");
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
 const core = __webpack_require__(470);
+const path = __webpack_require__(622);
 
 const AVAILABLE_FORMATS = ['gcc', 'json', 'tty'];
 
@@ -67,10 +68,11 @@ async function run() {
   try { 
     const inputFormat = core.getInput('format');
     const formats = inputFormat ? [inputFormat] : AVAILABLE_FORMATS;
+    const matchersPath = path.join(__dirname, '..', '.github');
 
     for (const format of formats) {
       console.log(`Activating shellcheck problem matcher for format '${format}'`);
-      console.log(`::add-matcher::problem-matchers/shellcheck-${format}-problem-matcher.json`);
+      console.log(`##[add-matcher]${path.join(matchersPath, `shellcheck-${format}.json`)}`);
     }
   } catch (error) {
     core.setFailed(error.message);
