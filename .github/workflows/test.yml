@@ -14,7 +14,7 @@ jobs:
     - run: npm run lint
 
   test-all-formats:
-    name: Run Action without specifying a format
+    name: All formats
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -26,11 +26,11 @@ jobs:
       shell: bash {0}
 
   test-specific-format:
-    name: Run Action with a specific format
+    name: Specific format
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        format: [ gcc, json, tty ]
+        format: [ gcc, tty ]
     steps:
     - uses: actions/checkout@v1
     - name: Use local version of Action

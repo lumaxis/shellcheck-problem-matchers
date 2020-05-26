@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const path = require('path');
 
-const AVAILABLE_FORMATS = ['gcc', 'json', 'tty'];
+const AVAILABLE_FORMATS = ['gcc', 'tty'];
 
 async function run() {
   try { 
