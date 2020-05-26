@@ -5,34 +5,24 @@
 
 # shellcheck problem matchers for GitHub Actions
 
-
-## Create a release branch
-
-Users shouldn't consume the action from master since that would be latest code and actions can break compatibility between major versions.
-
-Checkin to the v1 release branch
-
-```bash
-$ git checkout -b v1
-$ git commit -a -m "v1 release"
-```
-
-```bash
-$ git push origin v1
-```
-
-Your action is now published! :rocket: 
-
-See the [versioning documentation](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md)
+A set of problem matchers for [`shellcheck`](https://github.com/koalaman/shellcheck) that automatically decorate log output and generate [GitHub annotations](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-status-checks) on for example a Pull Request.
+This currently supports the `gcc`, `json`, and `tty` formats.
 
 ## Usage
 
-You can now consume the action by referencing the v1 branch
+To enable the shellcheck problem matchers, simply add this Action as a step **before** running the actual `shellcheck` command:
+
+```yaml
+uses: lumaxis/shellcheck-problem-matchers@v1
+run: shellcheck *.sh
+```
+
+By default, this Action installs all available problem matchers but you can specify one of the available formats explicitly:
 
 ```yaml
 uses: lumaxis/shellcheck-problem-matchers@v1
 with:
-  milliseconds: 1000
+  format: gcc # Available options are "gcc", "json", or "tty"
 ```
 
 See the [actions tab](https://github.com/lumaxis/shellcheck-problem-matchers/actions) for runs of this action! :rocket:
