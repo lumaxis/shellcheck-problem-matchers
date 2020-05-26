@@ -1,20 +1,17 @@
 const core = require('@actions/core');
-const wait = require('./wait');
 
+const AVAILABLE_FORMATS = ['gcc', 'json', 'tty'];
 
-// most @actions toolkit packages have async methods
 async function run() {
   try { 
-    const ms = core.getInput('milliseconds');
-    console.log(`Waiting ${ms} milliseconds ...`)
+    const inputFormat = core.getInput('format');
+    const formats = inputFormat ? [inputFormat] : AVAILABLE_FORMATS;
 
-    core.debug((new Date()).toTimeString())
-    await wait(parseInt(ms));
-    core.debug((new Date()).toTimeString())
-
-    core.setOutput('time', new Date().toTimeString());
-  } 
-  catch (error) {
+    for (const format of formats) {
+      console.log(`Activating shellcheck problem matcher for format '${format}'`);
+      console.log(`::add-matcher::problem-matchers/shellcheck-${format}-problem-matcher.json`);
+    }
+  } catch (error) {
     core.setFailed(error.message);
   }
 }

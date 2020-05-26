@@ -1,25 +1,36 @@
-name: "units-test"
+name: "Test shellcheck problem matchers"
 on:
   pull_request:
   push:
-    branches:
-      - master
-      - 'releases/*'
+    branches: [ master ]
 
 jobs:
-  # unit tests
-  units:
+  lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - run: npm ci
-    - run: npm test
+    - uses: actions/setup-node@v2-beta
+    - run : npm ci
+    - run: npm run lint
 
-  # test action works running from the graph  
-  test:
+  test-all-formats:
+    name: Run Action without specifying a format
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ./
+    # Run shellcheck and expect it to fail wit exit code 1
+    - run: shellcheck test/fixtures/*.sh; [[ $? == 1 ]]; exit $?
+      shell: bash {0}
+
+  test-specific-format:
+    name: Run Action with a specific format
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
     - uses: ./
       with:
-        milliseconds: 1000
+        format: gcc
+    # Run shellcheck and expect it to fail wit exit code 1
+    - run: shellcheck -f gcc test/fixtures/*.sh; [[ $? == 1 ]]; exit $?
+      shell: bash {0}
