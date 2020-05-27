@@ -8,7 +8,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2.1.1
     - uses: actions/setup-node@v2-beta
     - run: npm ci
     - run: npm run lint
@@ -17,7 +17,7 @@ jobs:
     name: Run Action without specifying a format
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2.1.1
     - name: Use local version of Action
       uses: ./
     # Run shellcheck and expect it to fail wit exit code 1
@@ -32,7 +32,7 @@ jobs:
       matrix:
         format: [ gcc, json, tty ]
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2.1.1
     - name: Use local version of Action
       uses: ./
       with:
