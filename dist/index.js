@@ -62,7 +62,7 @@ module.exports = require("os");
 const core = __webpack_require__(470);
 const path = __webpack_require__(622);
 
-const AVAILABLE_FORMATS = ['gcc', 'json', 'tty'];
+const AVAILABLE_FORMATS = ['gcc', 'tty'];
 
 async function run() {
   try { 
