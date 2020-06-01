@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint index.js",
     "package": "ncc build index.js -o dist",
-    "setup-tests": "node test/scripts/setup-vscode-test.js"
+    "setup-tasks": "node test/scripts/setup-vscode-tasks.js"
   },
   "repository": {
     "type": "git",
