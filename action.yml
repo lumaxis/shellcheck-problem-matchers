@@ -1,5 +1,5 @@
 name: 'Shellcheck Problem Matchers'
-description: 'A set of problem matchers for shellcheck in GitHub Actions'
+description: 'Automatically show shellcheck output as annotations in GitHub'
 branding:
   icon: list
   color: purple
