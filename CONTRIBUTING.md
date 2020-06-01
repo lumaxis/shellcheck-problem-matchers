@@ -2,7 +2,7 @@
 
 ## Testing problem matchers locally
 
-Since GitHub Actions are functionally very similar to [VS Code's problem matchers]() (outside of some [exceptions](https://github.com/actions/runner/blob/master/docs/adrs/0276-problem-matchers.md#where-we-diverge-from-vscode)), we can use VS Code locally to quickly test the matcher patterns.
+Since GitHub Actions are functionally very similar to [VS Code's problem matchers](https://code.visualstudio.com/Docs/editor/tasks#_defining-a-problem-matcher) (outside of some [exceptions](https://github.com/actions/runner/blob/master/docs/adrs/0276-problem-matchers.md#where-we-diverge-from-vscode)), we can use VS Code locally to quickly test the matcher patterns.
 
 1. Make sure VS Code `.vscode/tasks.json` file is in sync with actual problem matchers
     ```bash
