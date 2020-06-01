@@ -6,7 +6,7 @@
 # shellcheck problem matchers for GitHub Actions
 
 A set of problem matchers for [`shellcheck`](https://github.com/koalaman/shellcheck) that automatically decorate log output and generate [GitHub annotations](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-status-checks) on for example a Pull Request.
-This currently supports the `gcc`, `json`, and `tty` formats.
+This currently supports the `gcc` and `tty` formats.
 
 ## Usage
 
@@ -28,7 +28,7 @@ By default, this Action installs all available problem matchers but you can spec
 ```yaml
 uses: lumaxis/shellcheck-problem-matchers@v1
 with:
-  format: gcc # Available options are "gcc", "json", or "tty"
+  format: gcc # Available options are "gcc" or "tty"
 ```
 
 ## Contributing
