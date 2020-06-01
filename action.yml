@@ -5,7 +5,7 @@ branding:
   color: purple
 inputs:
   format:
-    description: 'A specific shellcheck output format to match'
+    description: 'Specify a specific format. Available options are "gcc" or "tty"'
     required: false
 runs:
   using: 'node12'
