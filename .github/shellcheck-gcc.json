@@ -1,7 +1,7 @@
 {
   "problemMatcher": [
     {
-      "owner": "shellcheck-json",
+      "owner": "shellcheck-gcc",
       "pattern": [
         {
           "regexp": "^(.+):(\\d+):(\\d+):\\s(note|warning|error):\\s(.*)\\s\\[(SC\\d+)\\]$",
