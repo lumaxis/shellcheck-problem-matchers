@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.2.0
-    - uses: actions/setup-node@v2-beta
+    - uses: actions/setup-node@v2.1.0
     - run: npm ci
     - run: npm run lint
 
