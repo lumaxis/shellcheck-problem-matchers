@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/lumaxis/shellcheck-problem-matchers#readme",
   "dependencies": {
-    "@actions/core": "^1.6.0"
+    "@actions/core": "^1.10.0"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.3",
