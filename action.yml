@@ -8,5 +8,5 @@ inputs:
     description: 'Specify a specific format. Available options are "gcc" or "tty"'
     required: false
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
