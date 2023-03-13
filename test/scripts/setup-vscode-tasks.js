@@ -3,6 +3,7 @@ const path = require('path');
 
 const problemMatchersDir = '.github'
 const vscodeTasksDir = '.vscode'
+/** @type {{ version: string; tasks: import('vscode').TaskDefinition[] }} */
 const tasksTemplate = {
   "version": "2.0.0",
   "tasks": []
@@ -10,6 +11,7 @@ const tasksTemplate = {
 
 const files = fs.readdirSync(problemMatchersDir).filter(file => file.startsWith('shellcheck-'));
 files.forEach((fileName) => {
+  // @ts-ignore - We know the file names match the regex
   const format = fileName.match(/^shellcheck-(\w+).json$/)[1];
   const rawMatcher = fs.readFileSync(path.join(problemMatchersDir, fileName), 'utf8');
   const matcher = JSON.parse(rawMatcher);
