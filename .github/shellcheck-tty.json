@@ -12,10 +12,10 @@
           "regexp": ".*"
         },
         {
-            "regexp": "SC(\\d+)\\s\\((note|warning|error)\\):\\s(.+)$",
+            "regexp": "SC(\\d+)(\\s\\((note|warning|error)\\))?:\\s(.+)$",
             "code": 1,
-            "severity": 2,
-            "message": 3,
+            "severity": 3,
+            "message": 4,
             "loop": true
         }
       ]
