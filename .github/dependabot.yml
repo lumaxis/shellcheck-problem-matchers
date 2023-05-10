@@ -4,7 +4,19 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    groups:
+      actions:
+        patterns:
+          - "*"
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "monthly"
+    groups:
+      dependencies:
+        patterns:
+          - "@actions/core"
+      dev-dependencies:
+        patterns:
+          - "@zeit/ncc"
+          - "eslint"
