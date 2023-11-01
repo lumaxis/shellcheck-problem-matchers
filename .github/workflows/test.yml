@@ -8,8 +8,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.6.0
-    - uses: actions/setup-node@v3
+    - uses: actions/checkout@v4.1.1
+    - uses: actions/setup-node@v4
     - run: npm ci
     - run: npm run lint
 
@@ -17,7 +17,7 @@ jobs:
     name: All formats
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.6.0
+    - uses: actions/checkout@v4.1.1
     - name: Use local version of Action
       uses: ./
     # Run shellcheck and expect it to fail wit exit code 1
@@ -32,7 +32,7 @@ jobs:
       matrix:
         format: [ gcc, tty ]
     steps:
-    - uses: actions/checkout@v3.6.0
+    - uses: actions/checkout@v4.1.1
     - name: Use local version of Action
       uses: ./
       with:
