@@ -4,7 +4,7 @@
   "description": "shellcheck problem matchers for GitHub Actions",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint index.js",
+    "lint": "eslint .",
     "setup-tasks": "node test/scripts/setup-vscode-tasks.js"
   },
   "repository": {
@@ -26,6 +26,8 @@
     "node": ">=24"
   },
   "devDependencies": {
-    "eslint": "^8.57.0"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "globals": "^17.8.0"
   }
 }
