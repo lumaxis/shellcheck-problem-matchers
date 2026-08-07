@@ -1,6 +1,6 @@
 
 <p align="center">
-  <a href="https://github.com/lumaxis/shellcheck-problem-matchers/actions"><img alt="shellcheck-problem-matchers status" src="https://github.com/lumaxis/shellcheck-problem-matchers/workflows/Test%20shellcheck%20problem%20matchers/badge.svg"></a>
+  <a href="https://github.com/lumaxis/shellcheck-problem-matchers/actions/workflows/test.yml"><img alt="shellcheck-problem-matchers status" src="https://github.com/lumaxis/shellcheck-problem-matchers/actions/workflows/test.yml/badge.svg"></a>
 </p>
 
 # shellcheck problem matchers for GitHub Actions
