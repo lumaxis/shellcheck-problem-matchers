@@ -14,18 +14,18 @@ Since GitHub Actions are functionally very similar to [VS Code's problem matcher
 
 ## Release a new version
 
-GitHub Actions will run the entry point from the action.yml. Packaging assembles the code into one file that can be checked in to Git, enabling fast and reliable execution and preventing the need to check in node_modules.
+The action runs `index.js` directly from the repository root. It has no runtime dependencies (only Node's built-in `path` module), so there is no bundling or build step — nothing needs to be compiled or committed before a release.
 
-Actions are run from GitHub repos.  Packaging the action will create a packaged action in the dist folder.
-
-Run package
+Releasing is just tagging:
 
 ```bash
-npm run package
+git tag -a v2.x.y -m "v2.x.y"
+git push origin v2.x.y
 ```
 
-Since the packaged index.js is run from the dist folder, make sure to commit its contents.
+Then move the major version tag so consumers pinned to `@v2` pick up the release:
 
 ```bash
-git add dist
+git tag -fa v2 -m "v2"
+git push --force origin v2
 ```
